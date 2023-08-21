@@ -1,13 +1,115 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Great+Vibes&family=Montserrat:wght@100;300;400;500;600;700;800&family=Playfair+Display&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.playfairDisplay {
+  font-family: "Playfair Display", serif;
+}
+
+.EBGaramond {
+  font-family: "EB Garamond", serif;
+}
+
+.greatVibes {
+  font-family: 'Great Vibes', cursive;
+}
+
+.nav-link {
+  position: relative;
+  z-index: 2;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #0a0a0a;
+  z-index: -1;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+  height: 100%;
+}
+
+.nav-link.active {
+  background-color: #0a0a0a;
+}
+
+.hero-background {
+  background-color: rgba(0, 0, 0, 1);
+  background-image: url("./images/hero-bg.webp");
+  background-attachment: fixed;
+  height: 55vh;
+  max-width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 90%;
+  mix-blend-mode: overlay;
+  overflow: hidden;
+}
+
+.slideInRight {
+  animation: slideInRight 0.3s ease-in-out;
+}
+
+.slideInLeft {
+  animation: slideInLeft 0.3s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .slideInRightSlow {
+    animation: slideInRight 0.7s ease-in-out forwards;
+  }
+
+  .slideInLeftSlow {
+    animation: slideInLeft 0.7s ease-in-out forwards;
+  }
+
+  .animation-delay-1 {
+    animation-delay: 0.5s;
+  }
+
+  .animation-delay-2 {
+    animation-delay: 1s;
+  }
+}
+
+
+
+
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
